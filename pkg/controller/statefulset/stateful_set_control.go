@@ -92,7 +92,7 @@ func (ssc *defaultStatefulSetControl) UpdateStatefulSet(set *apps.StatefulSet, p
 
 	// perform the main update function and get the status
 	status, err := ssc.updateStatefulSet(set, currentRevision, updateRevision, collisionCount, pods)
-	if err != nil {
+	if err != nil && status == nil {
 		return err
 	}
 
